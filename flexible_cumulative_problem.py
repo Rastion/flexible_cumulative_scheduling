@@ -1,5 +1,6 @@
 from qubots.base_problem import BaseProblem
 import random
+import os
 
 class FlexibleCumulativeProblem(BaseProblem):
     """
