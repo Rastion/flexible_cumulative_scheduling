@@ -1,0 +1,39 @@
+{
+    "entry_point": "flexible_cumulative_problem:FlexibleCumulativeProblem",
+    "default_params": {
+      "instance_file": "instances/pat1.fc"
+    },
+    "problem_type": "Flexible Cumulative Scheduling",
+    "description": "In the flexible cumulative scheduling problem, a set of tasks must be scheduled on renewable resources. Each task can be processed by one of several resources, where each task-resource pair has an associated processing time and resource consumption (weight). Tasks have precedence constraints and each resource has a limited capacity that cannot be exceeded by the sum of the weights of concurrently running tasks. The objective is to minimize the makespan, i.e., the time by which all tasks are completed.",
+    "keywords": [
+      "scheduling",
+      "cumulative constraints",
+      "resource allocation",
+      "precedence constraints",
+      "makespan minimization"
+    ],
+    "data_format": {
+      "instance_file": {
+        "format": "A text file containing: first line with two integers representing the number of tasks and the number of renewable resources; second line with the capacity of each resource; next, for each task, a line with 2×(number of resources) integers representing the processing time and weight for each resource (if both are zero, the task cannot be processed by that resource); and finally, one line per task containing the number of successors followed by the successor task IDs."
+      }
+    },
+    "decision_variables": {
+      "task_schedule": {
+        "type": "tuple (task_resources, start_times)",
+        "description": "task_resources is a list of integers (each between 0 and nb_resources-1) indicating the selected resource for each task; start_times is a list of integers representing the start time for each task."
+      }
+    },
+    "objective": {
+      "type": "minimization",
+      "function": "max_{i=0}^{nb_tasks-1} (start_time[i] + processing_time[i][task_resources[i]])",
+      "description": "Minimize the makespan, which is defined as the maximum completion time over all tasks."
+    },
+    "solution_representation": "A tuple (task_resources, start_times) where task_resources is a list of resource indices and start_times is a list of the corresponding start times for tasks.",
+    "compatible_optimizers": [
+      "genetic_algorithm",
+      "simulated_annealing",
+      "particle_swarm",
+      "tabu_search"
+    ]
+  }
+  
