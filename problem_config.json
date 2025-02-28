@@ -3,13 +3,15 @@
     "default_params": {
       "instance_file": "instances/pat1.fc"
     },
-    "problem_type": "Flexible Cumulative Scheduling",
+    "creator": "Rastion",
+    "type": "problem",
+    "problem_name": "Flexible cumulative scheduling",
     "description": "In the flexible cumulative scheduling problem, a set of tasks must be scheduled on renewable resources. Each task can be processed by one of several resources, where each task-resource pair has an associated processing time and resource consumption (weight). Tasks have precedence constraints and each resource has a limited capacity that cannot be exceeded by the sum of the weights of concurrently running tasks. The objective is to minimize the makespan, i.e., the time by which all tasks are completed.",
+    "link_to_dataset": "https://github.com/Rastion/flexible_cumulative_scheduling/blob/main/instances/pat1.fc",
     "keywords": [
-      "scheduling",
+      "production-scheduling",
       "cumulative constraints",
       "resource allocation",
-      "precedence constraints",
       "makespan minimization"
     ],
     "data_format": {
@@ -29,11 +31,8 @@
       "description": "Minimize the makespan, which is defined as the maximum completion time over all tasks."
     },
     "solution_representation": "A tuple (task_resources, start_times) where task_resources is a list of resource indices and start_times is a list of the corresponding start times for tasks.",
-    "compatible_optimizers": [
-      "genetic_algorithm",
-      "simulated_annealing",
-      "particle_swarm",
-      "tabu_search"
+    "formulations": [
+      ""
     ]
   }
   
